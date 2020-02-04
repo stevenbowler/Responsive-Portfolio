@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Jiggle JQuery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="javascriptJQuery.js"></script>
+
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> -->
+</head>
+
+<body>
+
+    <p>Press the buttons to change the box! JQuery Version</p>
+
+    <p id="message"></p>
+
+
+    <button id="button1" onclick="grow()">Grow</button>
+    <button id="button2" onclick="shrink()">Shrink</button>
+    <button id="button3" onclick="blue()">Blue</button>
+    <button id="button4a" onclick="slowFade()">Slow Fade</button>
+    <button id="button4b" onclick="darken()">Slow Dark</button>
+    <button id="button5" onclick="reset()">Reset</button>
+
+    <!-- margin: top bottom right left-->
+    <div id="box"
+        style="position:relative; height:150px; width:150px; background-color:orange; margin:0; font-size:50%; overflow: hidden; ">
+        <div id="blackbox"
+            style="position:relative; overflow: hidden; height:50px; width:50px; color: white; font-size:15px; background-color: black; margin:0px 0px 0px 0px; ">
+        </div>
+        <p style="float:right; text-align:right;">
+            This is the 9th version of this file for practice. This version includes JQuery. Some of the previous
+            versions are stored
+            on the Google Drive PreworkSB, module 6 sub-folder. Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis
+            nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat.
+        </p>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,3 @@
+/*
+This file is empty since this is running in Standalone React everything has to be loaded in to index.html
+*/

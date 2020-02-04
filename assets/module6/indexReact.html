@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Jiggle React</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <!--<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>-->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <!-- <script type="text/javascript" src="javascriptReact.js"> -->
+
+    </script>
+
+</head>
+
+<body>
+
+    <div id="root"></div>
+    <div id="buttons"></div>
+    <div id="box">
+        <div id="blackBox"></div>
+    </div>
+
+
+
+    </div>
+    <script type="text/babel">
+
+        // strip the "px" off the end of string and return integer value of remaining string
+        var parsePX = (pxString) => Number(pxString.slice(pxString, -2, 2));
+
+
+        class Box extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {
+                    height: "150px",
+                    width: "150px",
+                    backgroundColor: "orange",
+                    fontSize: "5px",
+                    grow: "true",
+                    blackBoxMarginLeft: "0px",
+                    blackBoxMarginTop: "0px"
+
+                };
+            }
+
+
+            changeColor = () => this.setState({ backgroundColor: "blue" });
+
+
+            grow = () => this.setState({ grow: "true" }, () => this.changeSize());
+
+
+            shrink = () => this.setState({ grow: "false" }, () => this.changeSize());
+
+
+            changeSize = () => {                    // grow or shrink the box with + or - factor value
+                let boxWidth, newBoxWidth, factor;
+                factor = this.props.delta;
+                if (this.state.grow == "false") factor = "-" + factor;
+                boxWidth = this.state.width;
+                newBoxWidth = (parsePX(boxWidth) + parsePX(factor)).toString() + "px";
+                this.setState({
+                    height: newBoxWidth,
+                    width: newBoxWidth
+                }, () => this.moveBlackBox());
+            }
+
+
+            // adjust blackBox within Box based on props for growth and margin moves indicate, 
+            //callback on setState to avoid top dimension only async margin move on both margins
+            moveBlackBox = () => {
+                //set state to new margins
+                this.setState({
+                    blackBoxMarginTop: this.setNewMargin("top")
+                }, () =>
+                    this.setState({
+                        blackBoxMarginLeft: this.setNewMargin("left")
+                    })
+                );
+            }
+
+
+            //set new left or top margin keep blackBox inside Box, yes messy code but good ReactCSS learning
+            setNewMargin = (topLeft) => {
+                let growthFactor, originalMargin, newMargin, boxWidthHeight, tempMargin, tempBoxWidthHeight;
+                // determine left or top margin of black box to move black box left/right or up/down
+                if (topLeft == "left") {
+                    boxWidthHeight = this.state.width;
+                    growthFactor = this.props.leftDelta;
+                    originalMargin = this.state.blackBoxMarginLeft;
+                } else {
+                    boxWidthHeight = this.state.height;
+                    growthFactor = this.props.topDelta;
+                    originalMargin = this.state.blackBoxMarginTop;
+                }
+                // messy way to move the blackBox and stay within the Box
+                // if not growing then make growth factor = negative
+                if (this.state.grow == "false") growthFactor = "-" + growthFactor;
+                tempMargin = parsePX(originalMargin);
+                tempBoxWidthHeight = parsePX(boxWidthHeight) - parsePX(growthFactor);
+                // if growing and too close to right side of Box and not already at zero on left then go left
+                if (this.state.grow == "true" && (tempMargin >= (tempBoxWidthHeight - 50)) && (tempMargin != 0))
+                    growthFactor = "-" + growthFactor;
+                newMargin = (parsePX(originalMargin) + parsePX(growthFactor)).toString() + "px";
+                //if not growing and close to left side of Box then set left margin to zero for blackBox
+                if (this.state.grow == "false" && parsePX(originalMargin) < 50) newMargin = "0px";
+                return (newMargin);
+            }
+
+
+            render() {
+                return (
+                    <div>
+                        <div id="buttons">
+                            <button
+                                type="button"
+                                onClick={this.grow}
+                            >Grow</button>
+                            <button
+                                type="button"
+                                onClick={this.shrink}
+                            >Shrink</button>
+                            <button
+                                type="button"
+                                onClick={this.changeColor}
+                            >Blue</button></div>
+
+                        <div id="box" style={{
+                            float: "top",
+                            overflow: "hidden",
+                            height: this.state.height,
+                            width: this.state.width,
+                            backgroundColor: this.state.backgroundColor,
+                            fontSize: this.state.fontSize,
+                            transitionDuration: "1s",
+                            position: "absolute"
+
+                        }}><div id="blackBox" onClick={this.moveBlackBox} style={{
+                            height: "50px",
+                            width: "50px",
+                            backgroundColor: "black",
+                            color: "white",
+                            fontSize: "10px",
+                            transitionDuration: "2s",
+                            marginLeft: this.state.blackBoxMarginLeft,
+                            position: "relative",
+                            marginTop: this.state.blackBoxMarginTop
+
+                        }}>Click Me</div>
+                            <h1>This is version 10 of the grow/shrink box originally javascript, then JQuery, now in React.
+                                Just learning about ES6, states, props, etc.  Lorem ipsum ...</h1>
+
+                        </div>
+
+                    </div>
+                );
+            }
+        }
+
+
+        const myelement = (<h1>Standalone React version for Module 6</h1>);
+        const mybuttons = (<div></div>);
+        ReactDOM.render(myelement, document.getElementById("root"));
+        let myBox;
+        myBox = new Box();
+        ReactDOM.render(<Box delta="50px" leftDelta="90px" topDelta="40px" />, document.getElementById('box'));
+        console.log(myBox.state.backgroundColor);
+        myBox.state.backgroundColor = "red";
+        //myBox.changeColor();
+        console.log(myBox.state.backgroundColor);
+        console.log(myBox.state.height);
+    </script>
+
+
+</body>
+
+</html>
