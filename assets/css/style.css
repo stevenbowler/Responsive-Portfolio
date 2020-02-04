@@ -1,10 +1,4 @@
-@media only screen and (max-width: 900px) {
-    h1 {
-      font-size: smaller;
-    }
-  }
 
-  
 * {
     
     padding: 0;
@@ -195,3 +189,16 @@ footer {
     background-color: grey;
     text-align: center;
  }
+
+ @media only screen and (max-width: 940px) {
+    h1 {
+      font-size: smaller !important;
+    }
+  }
+
+ @media only screen and (max-width: 640px) {
+    h1 {
+      font-size: xx-large !important;
+      width: 300px;
+    }
+  }
