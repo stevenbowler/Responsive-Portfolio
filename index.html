@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 
+
 <head>
     <title>Homework 2</title>
     <meta charset="UTF-8">
@@ -61,10 +62,13 @@
                                 tabindex="-1" aria-disabled="true">Github</a>
                         </li>
                     </ul>
-                    <form class="form-inline my-2 my-lg-0" target="blank" action="https://www.google.com/">
+                    <!-- https://github.com/stevenbowler/Responsive-Portfolio/search?q=navbar&unscoped_q=navbar -->
+                    <form id="googleSearchForm" class="form-inline my-2 my-lg-0" target="blank"
+                        action="https://github.com/stevenbowler/Responsive-Portfolio/search?">
                         <input class="form-control mr-sm-2" type="search" placeholder="Search Repository"
-                            aria-label="Search" name="googlesearch">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                            aria-label="Search" id="googlesearch" name="q">
+                        <button class="btn btn-outline-success my-2 my-sm-0" onclick="search()" type="submit"
+                            id="searchButton">Search</button>
                     </form>
                 </div>
             </nav>
@@ -119,7 +123,6 @@
 </body>
 
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
-<!-- <script>$("navheader").load("./assets/includes/navheader.html"); </script> -->
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
     crossorigin="anonymous"></script>
@@ -129,6 +132,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"></script>
-
+<!-- <script>$("#navheader").load("./assets/includes/navheader.html"); </script> -->
+<script type="text/javascript" src="javascript.js"></script>
 
 </html>
