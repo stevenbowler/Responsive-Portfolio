@@ -201,4 +201,9 @@ footer {
       font-size: xx-large !important;
       width: 300px;
     }
+    header nav ul {
+        text-align: center;
+        float: left;
+        margin-left: 20%;
+    }
   }
