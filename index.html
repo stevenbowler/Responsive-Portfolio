@@ -32,7 +32,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" role="button" onclick="loadHome()">Home</a>
                     </li>
                     <!-- <li class="nav-item">
                             <a class="nav-link" href="index2.html">Responsive Home<span
@@ -43,7 +43,7 @@
                         </li> -->
                     <li class="nav-item dropdown">
                     <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
+                        <a class="nav-link" role="button" onclick="loadContact()">Contact</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -87,9 +87,10 @@
         <!-- </div> -->
 
     </div>
+    <h1>test</h1>
     <!-- Content section -->
-    <div class="wrapper sandyback">
-        <section>
+    <div id="home" class="jumbotron animated zoomInRight delay-0s">
+        <section class="animated zoomInRight delay-0s">
             <h2>About Me
             </h2>
             <img class="animated zoomInRight delay-0s" src="./assets/images/homephoto.png" alt="SB photo" height="100px"
@@ -118,16 +119,42 @@
                 a;sdlkfjas;ldkfjas ;dlfkjsd;flkja s;dlkfj;asdlfkj ;;laskdj kasdf;lkj
                 a;sdlkfjas;ldkfjas ;dlfkjsd;flkja s;dlkfj;asdlfkj ;;laskdj kasdf;lkj
             </p><br>
-
-
-
-
         </section>
     </div>
-    <div class="footer wrapper">
+
+    <div id="contact" style="display:none;" class="jumbotron">
+        <section class="portfoliocontactsection animated zoomInRight delay-0s">
+            <h2>Contact
+            </h2>
+            <form>
+                <label>Name: </label><br><br>
+                <input type=text placeholder="Enter Name" width=100%
+                    style="background-color:lightgrey; color:black;"><br><br>
+                <label>Email: </label><br><br>
+                <input type=email placeholder="Example@gmail.com"
+                    style="background-color:lightgrey; color:black;"><br><br>
+                <label>Enter your message here please: </label><br><br>
+                <textarea rows="6" placeholder="Enter Message Please"
+                    style="background-color:lightgrey; color:black;"></textarea><br><br>
+                <button type=submit height=40px>Submit</button><br><br>
+            </form>
+        </section>
+    </div>
+
+
+    <div class="footer animated zoomInLeft delay-0s">
 
         <h3>Copyright Super Dabby&copy;</h3>
     </div>
+
+    <!-- Footer -->
+    <!-- <footer class="page-footer font-small grey">
+        <div class="footer-copyright text-center py-3">© 2020 Copyright: Super Dabby
+            <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
+        </div>
+    </footer> -->
+    <!-- Footer -->
+
 
 
 </body>
