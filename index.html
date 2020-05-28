@@ -55,11 +55,11 @@
                                 Managment
                                 App, on
                                 Heroku</a>
+                            <a class="dropdown-item"
+                                href="https://drive.google.com/file/d/1Vs6C1D5x1UoC_ONTekmDN3j9wV3LmicJ/view">Joggle
+                                Game Video Tutorial</a>
                             <a class="dropdown-item" href="http://calm-brook-76441.herokuapp.com/">Joggle Game -
                                 Full Stack MERN App with Password Ecryption and JSON Web Tokens</a>
-                            <!-- <a class="dropdown-item"
-                                href="https://drive.google.com/file/d/1Vs6C1D5x1UoC_ONTekmDN3j9wV3LmicJ/view">Joggle
-                                Game Video Tutorial</a> -->
                             <!-- <a class="dropdown-item" href="https://vast-ridge-32092.herokuapp.com/">burger Restaurant
                                 App, on
                                 Heroku</a> -->
@@ -94,16 +94,20 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="https://github.com/stevenbowler/Responsive-Portfolio" tabindex="-1"
+                        <a class="nav-link" href="https://github.com/stevenbowler" tabindex="-1"
                             aria-disabled="true">Github Repo</a>
                     </li>
                 </ul>
-                <form id="googleSearchForm" class="form-inline my-2 my-lg-0" target="blank"
-                    action="https://github.com/stevenbowler/Responsive-Portfolio/search?">
+                <form id="googleSearchForm" class="form-inline my-2 my-lg-0" target="blank">
+                    <!-- action="https://github.com/stevenbowler/search?"> -->
+                    <!-- https://github.com/search?q=user%3Astevenbowler+test 
+                        https://stevenbowler.github.io/Responsive-Portfolio/
+                        action="https://github.com/stevenbowler/Responsive-Portfolio/search?">
+                    
+                    -->
                     <input class="form-control mr-sm-2" type="search" placeholder="Search Repository"
-                        aria-label="Search" id="googlesearch" name="q">
-                    <button class="btn btn-outline-success my-2 my-sm-0" onclick="search()" type="submit"
-                        id="searchButton">Search</button>
+                        aria-label="Search" id="googlesearch" name="q=user%3Astevenbowler">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="searchButton">Search</button>
                 </form>
             </div>
         </nav>
@@ -145,13 +149,13 @@
             <form>
                 <small>stevenbowler@yahoo.com +1-956-792-4128</small><br>
                 <label>Name: </label><br>
-                <input type=text placeholder="Enter Name" width=100%
+                <input id="name" type=text placeholder="Enter Name" width=100%
                     style="background-color:lightgrey; color:black;"><br><br>
                 <label>Email: </label><br>
-                <input type=email placeholder="Example@gmail.com"
+                <input id="email" type=email placeholder="Example@gmail.com"
                     style="background-color:lightgrey; color:black;"><br><br>
                 <label>Enter your message here please: </label><br>
-                <textarea rows="6" placeholder="Enter Message Please"
+                <textarea id="contactMessage" rows="6" placeholder="Enter Message Please"
                     style="background-color:lightgrey; color:black;"></textarea><br><br>
                 <button type=submit height=40px>Submit</button><br><br>
             </form>

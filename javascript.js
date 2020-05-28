@@ -1,6 +1,12 @@
 var home = document.getElementById("home");
 var contact = document.getElementById("contact");
 
+$("#searchButton").on("click", function () {
+    var url = `https://github.com/search?q=user%3Astevenbowler+${$("#googlesearch").val()}`
+    $(location).attr('href', url);
+    $("#googlesearch").val("");
+});
+
 const loadHome = () => {
     contact.setAttribute("style", "display: none;");
     home.setAttribute("style", "display: none;");
